@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://dbbbvp2bxs852"]
+
+[ext_resource type="Script" path="res://Tetronimo.gd" id="1_gf2nq"]
+[ext_resource type="Script" path="res://TetrominoStateMachine.gd" id="2_2dy38"]
+[ext_resource type="Script" path="res://TetronimoState.gd" id="3_h0d0o"]
+[ext_resource type="Script" path="res://Dropping.gd" id="4_05420"]
+[ext_resource type="Script" path="res://Brick.gd" id="5_t1env"]
+[ext_resource type="Texture2D" uid="uid://db3g51rtc0e07" path="res://sprites.png" id="6_f3q7s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ox12l"]
+size = Vector2(22, 22)
+
+[node name="Tetronimo" type="AnimatableBody2D"]
+collision_layer = 4
+collision_mask = 31
+sync_to_physics = false
+script = ExtResource("1_gf2nq")
+brick_color = Color(0.213235, 0.129412, 0.8, 1)
+hue = 11
+debug = null
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("active_state")]
+script = ExtResource("2_2dy38")
+active_state = NodePath("Dropping")
+
+[node name="Rest" type="Node" parent="StateMachine"]
+script = ExtResource("3_h0d0o")
+collision_layer = 8
+
+[node name="Suspended" type="Node" parent="StateMachine"]
+script = ExtResource("3_h0d0o")
+collision_layer = 16
+
+[node name="Dropping" type="Node" parent="StateMachine"]
+script = ExtResource("4_05420")
+collision_layer = 4
+
+[node name="Timer" type="Timer" parent="StateMachine/Dropping"]
+autostart = true
+
+[node name="Brick" type="CollisionShape2D" parent="."]
+modulate = Color(0.213235, 0.129412, 0.8, 1)
+position = Vector2(12, 12)
+shape = SubResource("RectangleShape2D_ox12l")
+debug_color = Color(0, 0.6, 0.701961, 0)
+script = ExtResource("5_t1env")
+
+[node name="Sprite2D" type="Sprite2D" parent="Brick"]
+texture = ExtResource("6_f3q7s")
+region_enabled = true
+region_rect = Rect2(48, 24, 24, 24)
+
+[node name="Brick2" type="CollisionShape2D" parent="."]
+modulate = Color(0.213235, 0.129412, 0.8, 1)
+position = Vector2(36, 12)
+shape = SubResource("RectangleShape2D_ox12l")
+script = ExtResource("5_t1env")
+
+[node name="Sprite2D" type="Sprite2D" parent="Brick2"]
+texture = ExtResource("6_f3q7s")
+region_enabled = true
+region_rect = Rect2(48, 24, 24, 24)
+
+[node name="Brick3" type="CollisionShape2D" parent="."]
+modulate = Color(0.213235, 0.129412, 0.8, 1)
+position = Vector2(60, 12)
+shape = SubResource("RectangleShape2D_ox12l")
+script = ExtResource("5_t1env")
+
+[node name="Sprite2D" type="Sprite2D" parent="Brick3"]
+texture = ExtResource("6_f3q7s")
+region_enabled = true
+region_rect = Rect2(48, 24, 24, 24)
+
+[node name="Brick4" type="CollisionShape2D" parent="."]
+modulate = Color(0.213235, 0.129412, 0.8, 1)
+position = Vector2(60, 36)
+shape = SubResource("RectangleShape2D_ox12l")
+script = ExtResource("5_t1env")
+
+[node name="Sprite2D" type="Sprite2D" parent="Brick4"]
+texture = ExtResource("6_f3q7s")
+region_enabled = true
+region_rect = Rect2(48, 24, 24, 24)
+
+[connection signal="state_changed" from="StateMachine" to="." method="_on_state_machine_state_changed"]
+[connection signal="timeout" from="StateMachine/Dropping/Timer" to="StateMachine/Dropping" method="_on_timer_timeout"]

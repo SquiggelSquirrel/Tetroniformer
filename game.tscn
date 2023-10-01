@@ -1,0 +1,206 @@
+[gd_scene load_steps=9 format=3 uid="uid://bo0ltb77op2pb"]
+
+[ext_resource type="PackedScene" uid="uid://bugt1p4hfpjpl" path="res://stage_1.tscn" id="1_evb1d"]
+[ext_resource type="Script" path="res://game.gd" id="1_hfte6"]
+[ext_resource type="Texture2D" uid="uid://bw832qtr1p5qj" path="res://icon.svg" id="4_dbqv0"]
+[ext_resource type="Script" path="res://Quit.gd" id="4_m2jqi"]
+[ext_resource type="Script" path="res://UI.gd" id="28_c36dd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drp0q"]
+content_margin_left = 24.0
+content_margin_top = 12.0
+content_margin_right = 24.0
+content_margin_bottom = 12.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ltlj"]
+content_margin_left = 24.0
+content_margin_top = 24.0
+content_margin_right = 24.0
+content_margin_bottom = 24.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+
+[sub_resource type="Theme" id="Theme_ad5jb"]
+Button/colors/font_color = Color(0.92549, 0.92549, 0.92549, 1)
+Button/colors/font_disabled_color = Color(0.513726, 0.513726, 0.513726, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(0, 0, 0, 1)
+Button/colors/icon_focus_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_color = Color(0, 0, 0, 1)
+Button/colors/icon_hover_pressed_color = Color(0, 0, 0, 1)
+Button/colors/icon_normal_color = Color(0, 0, 0, 1)
+Button/colors/icon_pressed_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = SubResource("StyleBoxFlat_drp0q")
+Button/styles/normal = SubResource("StyleBoxFlat_drp0q")
+Button/styles/pressed = null
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_5ltlj")
+
+[node name="Game" type="Node"]
+process_mode = 3
+script = ExtResource("1_hfte6")
+
+[node name="TileMap" parent="." instance=ExtResource("1_evb1d")]
+process_mode = 1
+
+[node name="Controls" type="CenterContainer" parent="."]
+process_mode = 3
+z_index = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_ad5jb")
+script = ExtResource("28_c36dd")
+
+[node name="PanelContainer" type="PanelContainer" parent="Controls"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Controls/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Congratulations" type="VBoxContainer" parent="Controls/PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Controls/PanelContainer/VBoxContainer/Congratulations"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Congratulations!"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Controls/PanelContainer/VBoxContainer/Congratulations"]
+layout_mode = 2
+text = "You win!"
+horizontal_alignment = 1
+
+[node name="Title" type="Label" parent="Controls/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Tetroniformer"
+horizontal_alignment = 1
+
+[node name="Heading" type="Label" parent="Controls/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Controls:"
+
+[node name="GridContainer" type="GridContainer" parent="Controls/PanelContainer/VBoxContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="Controls/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "W / A / D "
+
+[node name="Label2" type="Label" parent="Controls/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Jump / Left / Right
+"
+
+[node name="Label3" type="Label" parent="Controls/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Space
+"
+
+[node name="Label4" type="Label" parent="Controls/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Pickup / Drop Tetronimo"
+
+[node name="Label5" type="Label" parent="Controls/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "S"
+
+[node name="Label6" type="Label" parent="Controls/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Rotate Tetronimo"
+
+[node name="Label7" type="Label" parent="Controls/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Escape"
+
+[node name="Label8" type="Label" parent="Controls/PanelContainer/VBoxContainer/GridContainer"]
+layout_mode = 2
+text = "Open Menu"
+
+[node name="Blurb" type="Label" parent="Controls/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "After the intergalactic falling-tetronimos tournament,
+you've been taksed with the cleanup.
+Pickup and move tetronimos, make rows of 10 to remove bricks.
+Reach the flag to win the game."
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Controls/PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="Controls/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_dbqv0")
+expand_mode = 2
+
+[node name="Credits" type="Label" parent="Controls/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Made with
+Godot"
+
+[node name="Credits2" type="Label" parent="Controls/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Created by SquiggelSquirrel
+for Ludum Dare 54 Compo"
+horizontal_alignment = 2
+
+[node name="Buttons" type="HBoxContainer" parent="Controls/PanelContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Start" type="Button" parent="Controls/PanelContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Start"
+
+[node name="Continue" type="Button" parent="Controls/PanelContainer/VBoxContainer/Buttons"]
+visible = false
+layout_mode = 2
+text = "Continue"
+
+[node name="Restart" type="Button" parent="Controls/PanelContainer/VBoxContainer/Buttons"]
+visible = false
+layout_mode = 2
+text = "Restart
+"
+
+[node name="PlayAgain" type="Button" parent="Controls/PanelContainer/VBoxContainer/Buttons"]
+visible = false
+layout_mode = 2
+text = "Play Again
+"
+
+[node name="Quit" type="Button" parent="Controls/PanelContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("4_m2jqi")
+
+[connection signal="pressed" from="Controls/PanelContainer/VBoxContainer/Buttons/Start" to="Controls" method="_on_start_pressed"]
+[connection signal="pressed" from="Controls/PanelContainer/VBoxContainer/Buttons/Continue" to="Controls" method="_on_continue_pressed"]
+[connection signal="pressed" from="Controls/PanelContainer/VBoxContainer/Buttons/Restart" to="Controls" method="_on_restart_pressed"]
+[connection signal="pressed" from="Controls/PanelContainer/VBoxContainer/Buttons/PlayAgain" to="Controls" method="_on_play_again_pressed"]
