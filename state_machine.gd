@@ -7,6 +7,9 @@ signal state_changed(new_state)
 
 
 func _ready() -> void:
+	if active_state == null:
+		active_state = get_child(0)
+	await get_tree().process_frame
 	active_state.enter_state()
 
 

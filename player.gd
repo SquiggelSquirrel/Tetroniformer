@@ -19,7 +19,6 @@ var grabbed_brick_index: int
 
 func _process(_delta: float) -> void:
 	if $AntiFlyingMachine.is_colliding() or $AntiFlyingMachine2.is_colliding():
-		print("Anti-flying machine triggered")
 		$Grabber.release()
 
 

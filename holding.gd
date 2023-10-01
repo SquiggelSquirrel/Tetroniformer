@@ -19,7 +19,7 @@ func state_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pickup_or_drop"):
 		next_state = "Idle"
 	if event.is_action_pressed("rotate"):
-		grabber.brick_index = grabber.tetronimo.rotate_pattern(
+		grabber.brick_index = await grabber.tetronimo.rotate_pattern(
 				grabber.brick_index, grabber.facing)
 
 

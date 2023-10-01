@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bugt1p4hfpjpl" path="res://stage_1.tscn" id="1_evb1d"]
 [ext_resource type="Script" path="res://game.gd" id="1_hfte6"]
 [ext_resource type="Texture2D" uid="uid://bw832qtr1p5qj" path="res://icon.svg" id="4_dbqv0"]
-[ext_resource type="Script" path="res://Quit.gd" id="4_m2jqi"]
+[ext_resource type="Script" path="res://quit.gd" id="5_ubta1"]
 [ext_resource type="Script" path="res://UI.gd" id="28_c36dd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_drp0q"]
@@ -198,7 +198,7 @@ text = "Play Again
 [node name="Quit" type="Button" parent="Controls/PanelContainer/VBoxContainer/Buttons"]
 layout_mode = 2
 text = "Quit"
-script = ExtResource("4_m2jqi")
+script = ExtResource("5_ubta1")
 
 [connection signal="pressed" from="Controls/PanelContainer/VBoxContainer/Buttons/Start" to="Controls" method="_on_start_pressed"]
 [connection signal="pressed" from="Controls/PanelContainer/VBoxContainer/Buttons/Continue" to="Controls" method="_on_continue_pressed"]

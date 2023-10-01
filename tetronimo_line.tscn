@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cw6slxroq053e"]
 
-[ext_resource type="Script" path="res://Tetronimo.gd" id="1_7st7l"]
-[ext_resource type="Script" path="res://TetrominoStateMachine.gd" id="2_toayf"]
-[ext_resource type="Script" path="res://TetronimoState.gd" id="3_lg62l"]
-[ext_resource type="Script" path="res://Dropping.gd" id="4_b6o7a"]
-[ext_resource type="Script" path="res://Brick.gd" id="5_gwsnt"]
+[ext_resource type="Script" path="res://tetronimo.gd" id="1_7st7l"]
+[ext_resource type="Script" path="res://tetronimo_state_machine.gd" id="2_toayf"]
+[ext_resource type="Script" path="res://tetronimo_state.gd" id="3_lg62l"]
+[ext_resource type="Script" path="res://dropping.gd" id="4_b6o7a"]
+[ext_resource type="Script" path="res://brick.gd" id="5_gwsnt"]
 [ext_resource type="Texture2D" uid="uid://db3g51rtc0e07" path="res://sprites.png" id="6_7bpvi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox12l"]
@@ -15,8 +15,8 @@ collision_layer = 4
 collision_mask = 31
 sync_to_physics = false
 script = ExtResource("1_7st7l")
-brick_color = Color(0.129412, 0.8, 0.8, 1)
-hue = 8
+brick_color = Color(0.213235, 0.129412, 0.8, 1)
+hue = 11
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("active_state")]
 script = ExtResource("2_toayf")
@@ -38,7 +38,7 @@ collision_layer = 4
 autostart = true
 
 [node name="Brick" type="CollisionShape2D" parent="."]
-modulate = Color(0.129412, 0.8, 0.8, 1)
+modulate = Color(0.213235, 0.129412, 0.8, 1)
 position = Vector2(12, 12)
 shape = SubResource("RectangleShape2D_ox12l")
 debug_color = Color(0, 0.6, 0.701961, 0)
@@ -50,7 +50,7 @@ region_enabled = true
 region_rect = Rect2(48, 24, 24, 24)
 
 [node name="Brick2" type="CollisionShape2D" parent="."]
-modulate = Color(0.129412, 0.8, 0.8, 1)
+modulate = Color(0.213235, 0.129412, 0.8, 1)
 position = Vector2(36, 12)
 shape = SubResource("RectangleShape2D_ox12l")
 script = ExtResource("5_gwsnt")
@@ -61,7 +61,7 @@ region_enabled = true
 region_rect = Rect2(48, 24, 24, 24)
 
 [node name="Brick3" type="CollisionShape2D" parent="."]
-modulate = Color(0.129412, 0.8, 0.8, 1)
+modulate = Color(0.213235, 0.129412, 0.8, 1)
 position = Vector2(60, 12)
 shape = SubResource("RectangleShape2D_ox12l")
 script = ExtResource("5_gwsnt")
@@ -72,7 +72,7 @@ region_enabled = true
 region_rect = Rect2(48, 24, 24, 24)
 
 [node name="Brick4" type="CollisionShape2D" parent="."]
-modulate = Color(0.129412, 0.8, 0.8, 1)
+modulate = Color(0.213235, 0.129412, 0.8, 1)
 position = Vector2(84, 12)
 shape = SubResource("RectangleShape2D_ox12l")
 script = ExtResource("5_gwsnt")

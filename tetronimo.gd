@@ -140,7 +140,7 @@ func rotate_pattern(brick_index: int, facing: int) -> int:
 		else:
 			pattern_origin = Tetronimo.pattern_bottom_right(pattern)
 		if test_pattern(anchor_cell, pattern_origin, pattern):
-			return apply_pattern(anchor_cell, pattern_origin, pattern)
+			return await apply_pattern(anchor_cell, pattern_origin, pattern)
 	return brick_index
 
 
@@ -160,7 +160,7 @@ func apply_pattern(
 		anchor_cell: Vector2i,
 		pattern_origin: Vector2i,
 		pattern: Array[Vector2i]) -> int:
-	var grid := get_parent() as Grid
+	var grid = get_parent() as Grid
 	position = grid.map_to_local(anchor_cell) - GRID_SIZE * 0.5
 	position = position.snapped(GRID_SIZE)
 	var bricks := get_bricks()

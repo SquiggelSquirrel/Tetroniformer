@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://cd46ncdnat83u"]
 
-[ext_resource type="Script" path="res://Tetronimo.gd" id="1_58raa"]
-[ext_resource type="Script" path="res://TetrominoStateMachine.gd" id="2_i3g7o"]
-[ext_resource type="Script" path="res://TetronimoState.gd" id="3_yh7bs"]
-[ext_resource type="Script" path="res://Dropping.gd" id="4_pp31o"]
-[ext_resource type="Script" path="res://Brick.gd" id="5_dxm2e"]
+[ext_resource type="Script" path="res://tetronimo.gd" id="1_58raa"]
+[ext_resource type="Script" path="res://tetronimo_state_machine.gd" id="2_i3g7o"]
+[ext_resource type="Script" path="res://tetronimo_state.gd" id="3_yh7bs"]
+[ext_resource type="Script" path="res://dropping.gd" id="4_pp31o"]
+[ext_resource type="Script" path="res://brick.gd" id="5_dxm2e"]
 [ext_resource type="Texture2D" uid="uid://db3g51rtc0e07" path="res://sprites.png" id="6_hf5ok"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ox12l"]
@@ -15,8 +15,7 @@ collision_layer = 4
 collision_mask = 31
 sync_to_physics = false
 script = ExtResource("1_58raa")
-brick_color = Color(0.464706, 0.8, 0.129412, 1)
-hue = 4
+brick_color = Color(0.8, 0.12, 0.12, 1)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("active_state")]
 script = ExtResource("2_i3g7o")

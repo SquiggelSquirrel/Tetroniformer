@@ -92,6 +92,7 @@ func check_row_break(cell: Vector2i) -> void:
 
 
 func break_row(bricks: Array[Brick]) -> void:
+	print("break_row")
 	$RowBreak.play()
 	for brick in bricks:
 		brick.brick_break()

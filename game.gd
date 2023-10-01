@@ -4,6 +4,7 @@ var start_scene := preload("res://stage_1.tscn")
 
 
 func _ready():
+	await get_tree().process_frame
 	$TileMap.level_complete.connect(_on_level_complete)
 
 
